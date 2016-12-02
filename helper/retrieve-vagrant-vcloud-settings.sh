@@ -30,7 +30,7 @@ done
 # reset the translated args
 eval set -- $args
 # now we can process with getopt
-while getopts "hvun:o:" opt; do
+while getopts "hvu:n:o:" opt; do
   case $opt in
     h) usage ;;
     u) USER=$OPTARG ;;

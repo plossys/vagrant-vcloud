@@ -34,6 +34,12 @@ RUN apt-get update -y && \
 
 COPY . /root/.vagrant.d/gems/gems/vagrant-vcloud-0.4.4
 COPY helper/retrieve-vagrant-vcloud-settings.sh /usr/local/bin/retrieve-vagrant-vcloud-settings.sh
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    apt-get install -y nodejs python python-pip jq && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    pip install --upgrade httpie && \
+    npm install -g xml2json-command
 
 WORKDIR "/work"
 
