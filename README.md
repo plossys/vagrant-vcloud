@@ -20,7 +20,7 @@ in addition to a Docker engine.
 Download the [helper/vcloud.sh](https://github.com/plossys/vagrant-vcloud/blob/my/helper/vcloud.sh) script and put it into a directory of your PATH.
 
 ```bash
-curl -o vcloud https://raw.githubusercontent.com/plossys/vagrant-vcloud/my/helper/vcloud.bat
+curl -o vcloud https://raw.githubusercontent.com/plossys/vagrant-vcloud/my/helper/vcloud.sh
 chmod +x vcloud
 ```
 
