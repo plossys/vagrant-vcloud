@@ -9,6 +9,6 @@ else
   docker run --rm -it \
     -v "$(pwd):/work" \
     -v ~/.vagrant.d/Vagrantfile:/user/Vagrantfile \
-    -e VCLOUD_USERNAME -e VCLOUD_PASSWORD \
+    -e VCLOUD_USER -e VCLOUD_PWD \
     "$image" "$@"
 fi
