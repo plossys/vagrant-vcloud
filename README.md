@@ -15,7 +15,7 @@ prefer a newer Version of Vagrant.
 There is a helper script `vcloud` that should be installed on your local machine
 in addition to a Docker engine.
 
-### Linux
+### Linux / macOS
 
 Download the [helper/vcloud.sh](https://github.com/plossys/vagrant-vcloud/blob/my/helper/vcloud.sh) script and put it into a directory of your PATH.
 
