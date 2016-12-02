@@ -50,8 +50,8 @@ Put this lines to your global ~/.vagrant.d/Vagrantfile
 Vagrant.configure("2") do |config|
   if Vagrant.has_plugin?("vagrant-vcloud")
     vcloud.hostname            = "https://yourCloud"
-    vcloud.username            = "vagrant"
-    vcloud.password            = ENV['VCLOUD_PASSWORD'] || "vagrant"
+    vcloud.username            = ENV['VCLOUD_USER'] ||"vagrant"
+    vcloud.password            = ENV['VCLOUD_PWD'] || "vagrant"
     vcloud.org_name            = "XX"
     vcloud.vdc_name            = "XX-VDC"
     vcloud.catalog_name        = "COM-BUILD-CATALOG"
@@ -191,18 +191,18 @@ For additional documentation on network setups with vCloud Director, check the [
 If you see the following error spinning up a Linux VM in vCloud from a Windows host
 
 ```
-    p50: Vagrant insecure key detected. Vagrant will automatically replace
-    p50: this with a newly generated keypair for better security.
-    p50:
-    p50: Inserting generated public key within guest...
-    p50: Removing insecure key from the guest if it's present...
-    p50: Key inserted! Disconnecting and reconnecting using new SSH key...
+    box: Vagrant insecure key detected. Vagrant will automatically replace
+    box: this with a newly generated keypair for better security.
+    box:
+    box: Inserting generated public key within guest...
+    box: Removing insecure key from the guest if it's present...
+    box: Key inserted! Disconnecting and reconnecting using new SSH key...
 The private key to connect to this box via SSH has invalid permissions
 set on it. The permissions of the private key should be set to 0600, otherwise SS
 ignore the key. Vagrant tried to do this automatically for you but failed. Please
 permissions on the following file to 0600 and then try running this command again
 
-/work/.vagrant/machines/p50/vcloud/private_key
+/work/.vagrant/machines/box/vcloud/private_key
 
 Note that this error occurs after Vagrant automatically tries to
 do this for you. The likely cause of this error is a lack of filesystem
