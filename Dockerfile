@@ -45,4 +45,6 @@ WORKDIR "/work"
 
 VOLUME ["/work", "/user"]
 
+ENV VAGRANT_DEFAULT_PROVIDER vcloud
+
 ENTRYPOINT ["vagrant"]
