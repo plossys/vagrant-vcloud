@@ -30,6 +30,8 @@ RUN apt-get update -y && \
     vagrant box add windows_2016_docker ${BOX_WINDOWS} && \
     vagrant box add ubuntu1404 ${BOX_LINUX} && \
     vagrant box add ubuntu1404-desktop ${BOX_LINUX} && \
+    vagrant box add boxcutter/ubuntu1604 ${BOX_LINUX} && \
+    vagrant box add boxcutter/ubuntu1604-desktop ${BOX_LINUX} && \
     rm -rf /root/.vagrant.d/gems/gems/vagrant-vcloud-*
 
 COPY . /root/.vagrant.d/gems/gems/vagrant-vcloud-0.4.6
