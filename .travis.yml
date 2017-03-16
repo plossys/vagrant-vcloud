@@ -4,10 +4,9 @@ services:
 language: bash
 script:
 # build image
-- docker build -t plossys/vagrant-vcloud:build .
+- ./travis-build.sh
 # test image
-- docker run plossys/vagrant-vcloud:build --version
-- docker run plossys/vagrant-vcloud:build plugin list
+- ./travis-test.sh
 # push image
 - >
   if [ "$TRAVIS_BRANCH" == "my" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then

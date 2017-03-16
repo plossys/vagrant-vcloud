@@ -1,9 +1,11 @@
 FROM ubuntu
 
 ENV	\
-  VAGRANT_VERSION=1.7.4 \
+  VAGRANT_VERSION=1.9.2 \
   BOX_WINDOWS=https://raw.githubusercontent.com/plossys/vagrant-vcloud/my/helper/dummy-windows.box \
   BOX_LINUX=https://raw.githubusercontent.com/plossys/vagrant-vcloud/my/helper/dummy-linux.box
+
+COPY vagrant-vcloud-0.4.6.2.gem /
 
 RUN apt-get update -y && \
     apt-get install -y build-essential liblzma-dev zlib1g-dev git openssh-client rsync curl && \
@@ -13,12 +15,9 @@ RUN apt-get update -y && \
     rm -f /tmp/vagrant_x86_64.deb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    vagrant plugin install vagrant-vcloud && \
-    vagrant plugin install winrm-fs && \
     vagrant plugin install vagrant-reload && \
     vagrant plugin install vagrant-hostmanager && \
-    vagrant plugin install vagrant-serverspec && \
-    vagrant plugin install vagrant-cucumber && \
+    vagrant plugin install vagrant-vcloud-0.4.6.2.gem && \
     ln -s /user/Vagrantfile /root/.vagrant.d/Vagrantfile && \
     vagrant box add windows_7 ${BOX_WINDOWS} && \
     vagrant box add windows_81 ${BOX_WINDOWS} && \
@@ -34,7 +33,6 @@ RUN apt-get update -y && \
     vagrant box add boxcutter/ubuntu1604-desktop ${BOX_LINUX} && \
     rm -rf /root/.vagrant.d/gems/gems/vagrant-vcloud-*
 
-COPY . /root/.vagrant.d/gems/gems/vagrant-vcloud-0.4.6
 COPY helper/retrieve-vagrant-vcloud-settings.sh /usr/local/bin/retrieve-vagrant-vcloud-settings.sh
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get install -y nodejs python python-pip jq && \
