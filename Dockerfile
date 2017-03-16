@@ -5,7 +5,7 @@ ENV	\
   BOX_WINDOWS=https://raw.githubusercontent.com/plossys/vagrant-vcloud/my/helper/dummy-windows.box \
   BOX_LINUX=https://raw.githubusercontent.com/plossys/vagrant-vcloud/my/helper/dummy-linux.box
 
-COPY vagrant-vcloud-0.4.6.2.gem /
+COPY vagrant-vcloud-0.4.6.3.gem /
 
 RUN apt-get update -y && \
     apt-get install -y build-essential liblzma-dev zlib1g-dev git openssh-client rsync curl && \
@@ -17,7 +17,7 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     vagrant plugin install vagrant-reload && \
     vagrant plugin install vagrant-hostmanager && \
-    vagrant plugin install vagrant-vcloud-0.4.6.2.gem && \
+    vagrant plugin install vagrant-vcloud-0.4.6.3.gem && \
     ln -s /user/Vagrantfile /root/.vagrant.d/Vagrantfile && \
     vagrant box add windows_7 ${BOX_WINDOWS} && \
     vagrant box add windows_81 ${BOX_WINDOWS} && \
